@@ -1,0 +1,13 @@
+<div class="signup-methods" id="<%= action %>_block">
+  You can sign in with your <%= link_to 'Facebook', user_omniauth_authorize_path(:facebook) %> or 
+  <%= link_to 'Google', user_omniauth_authorize_path(:google_oauth2) %> accounts
+  <div class="separator">or</div>
+  <%= form_tag(path, remote: true, id: "#{action}_form") do %>
+    <%=label_tag :email%>
+    <%= text_field_tag :email, nil, class: 'text-input' %><br />
+    <%=label_tag :password%>
+    <%= password_field_tag :password, nil, class: 'text-input' %><br />
+    <%= submit_tag label, class: 'btn btn-inverse' %>
+    <%= image_tag 'ajax-loader.gif', class: 'loading' %>
+  <% end %>
+</div>

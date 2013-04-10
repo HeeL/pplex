@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Pplex Programming Language Exchange</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="SHORTCUT ICON" href="/assets/favicon.ico" />
+  <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css", media: "all" %>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%=render 'shared/ga'%>
+  <%= js_msg([notice, alert])%>
+  <%= js_msg([flash[:error]], 'error')%>
+
+<div class="container teach" id="who_styles">
+  
+  <header>
+    <div class="wrap">
+      <a href="/">
+        <h1 class="logo">Pplex</h1>
+      </a>
+      <div class="share pull-right">
+        <%= render partial: 'shared/soc_btns' %>
+      </div>
+      <div class="slogan">Pplex Programming Language Exchange</div>
+    </div>
+    <div class="top-bar">
+      <div class="wrap">
+        <% if user_signed_in? %>
+          <%= render 'shared/user_navi' %>
+        <% else %>
+          <%= render 'shared/guest_navi' %>
+        <% end %>
+      </div>
+    </div>
+  </header>
+  
+  <%= on_root_page? ? yield : content_tag(:div, yield, :class => "wrap") %>
+  
+  <div class="clearfix"></div>
+  <%= render partial: 'shared/feedback_form' %>
+  
+  <footer>
+    <div class="wrap">
+      <div class="pull-left">&copy; <%=Date.today.year%> Pplex.net</div>
+      <ul class="links pull-right">
+        <li><span class="js-link gray-link" id="feedback_link">Send E-mail</span></li>
+      </ul>
+    </div>
+  </footer>
+
+</div>  
+</body>
+</html>
