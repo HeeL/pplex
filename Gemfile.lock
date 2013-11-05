@@ -48,7 +48,6 @@ GEM
     better_errors (0.3.2)
       coderay (>= 1.0.0)
       erubis (>= 2.7.0)
-    binding_of_caller (0.6.8)
     bourbon (3.0.1)
       sass (>= 3.2.0)
       thor
@@ -256,7 +255,6 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   better_errors
-  binding_of_caller
   capistrano
   capybara
   coffee-rails (~> 3.2.1)
